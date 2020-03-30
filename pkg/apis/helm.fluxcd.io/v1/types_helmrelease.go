@@ -146,8 +146,8 @@ type ChartSource struct {
 // GitChartSource describes a Helm chart sourced from Git.
 type GitChartSource struct {
 	// Git URL is the URL of the Git repository, e.g.
-	// git@github.com:org/repo, http://github.com/org/repo,
-	// or ssh://git@example.com:2222/org/repo.git.
+	// `git@github.com:org/repo`, `http://github.com/org/repo`,
+	// or `ssh://git@example.com:2222/org/repo.git`.
 	// +kubebuilder:validation:Optional
 	GitURL string `json:"git"`
 	// Ref is the Git branch (or other reference) to use. Defaults to
@@ -182,8 +182,8 @@ func (s GitChartSource) RefOrDefault(defaultGitRef string) string {
 // repository.
 type RepoChartSource struct {
 	// RepoURL is the URL of the Helm repository, e.g.
-	// https://kubernetes-charts.storage.googleapis.com or
-	// https://charts.example.com.
+	// `https://kubernetes-charts.storage.googleapis.com` or
+	// `https://charts.example.com`.
 	// +kubebuilder:validation:Optional
 	RepoURL string `json:"repository"`
 	// Name is the name of the Helm chart _without_ an alias, e.g.
